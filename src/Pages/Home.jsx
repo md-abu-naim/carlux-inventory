@@ -1,9 +1,10 @@
-import React from 'react';
+import Navber from '../Components/Navber';
 
 const Home = () => {
     return (
         <div>
-            home page
+            {/* Navber */}
+            <Navber />
         </div>
     );
 };
