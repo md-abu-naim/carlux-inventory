@@ -7,8 +7,8 @@ import { useProducts } from '../Hooks/useProducts';
 import SkeletonLoader from '../Components/SkeletonLoader';
 
 const Home = () => {
-    const {products, loading} = useProducts()
-    
+    const { products, loading } = useProducts()
+
     return (
         <div className='bg-gray-950 min-h-screen text-gray-300 space-y-3'>
             {/* Header */}
@@ -26,20 +26,24 @@ const Home = () => {
                     <p className='text-gray-400 mb-4'>Explore our latest inventory of vehicles</p>
                 </div>
 
-                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+                <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
                     {
-                        loading ? <ProductSkeleton />: (
+                        loading ? Array.from({ length: 8 }).map((_, i) => <ProductSkeleton key={i} />) : (
                             products.map((product, i) => (
                                 <ProductCard key={i} product={product} />
                             ))
                         )
                     }
                 </div>
-
-                <SkeletonLoader />
             </div>
         </div>
     );
 };
 
 export default Home;
+
+// loading ? (products.map((p, i) => <ProductSkeleton key={i} p={p} />)) : (
+//     products.map((product, i) => (
+//         <ProductCard key={i} product={product} />
+//     ))
+// )

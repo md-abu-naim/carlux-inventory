@@ -1,7 +1,7 @@
 
 const ProductCard = ({product}) => {
     const {title, brand, price, thumbnail} = product || {}
-    console.log(product);
+    
     return (
         <div className='flex items-center justify-center bg-gray-950 p-4'>
             <div className='group relative w-76 rounded-4xl bg-gray-900 p-5 border border-white/5 transition-all duration-500 hover:border-cyan-400/30 hover:shadow-2xl hover:shadow-cyan-400/10'>
