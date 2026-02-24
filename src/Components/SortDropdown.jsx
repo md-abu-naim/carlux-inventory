@@ -1,5 +1,5 @@
 
-const SortDropdown = ({sort, setSort}) => {
+const SortDropdown = ({ sort, setSort }) => {
     return (
         <select onChange={(e) => setSort(e.target.value)} value={sort}
             className="p-2 rounded-lg bg-gray-800 border border-gray-700 focus:outline-none focus:ring-2 focus:ring-cyan-500">

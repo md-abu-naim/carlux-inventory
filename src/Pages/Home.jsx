@@ -14,10 +14,10 @@ const Home = () => {
 
     console.log(error);
 
-    const filterProducts = products.filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
+    const filterProducts = [...products].filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
         .sort((a, b) =>
             sort == "low" ? a.price - b.price :
-                sort == "high" ? b.price - a.price : 0
+            sort == "high" ? b.price - a.price : 0
         )
 
     return (

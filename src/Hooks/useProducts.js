@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 export const useProducts = () => {
     const [products, setProducts] = useState([])
-    const [loading , setLoading] = useState(true)
+    const [loading, setLoading] = useState(true)
     const [error, setError] = useState(null)
 
 
@@ -16,7 +16,7 @@ export const useProducts = () => {
 
             } catch (error) {
                 setError(error.message || 'Failed to fetch products');
-            }finally{
+            } finally {
                 setLoading(false)
             }
         }
@@ -24,5 +24,5 @@ export const useProducts = () => {
         fetchProducts()
     }, [])
 
-    return {products, loading, error}
+    return { products, loading, error }
 }
