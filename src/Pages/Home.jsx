@@ -5,18 +5,20 @@ import SortDropdown from '../Components/SortDropdown';
 import { useProducts } from '../Hooks/useProducts';
 import SkeletonLoader from '../Components/SkeletonLoader';
 import { useState } from 'react';
+import Error from '../Components/Error';
 
 const Home = () => {
-    const { products, loading } = useProducts()
+    const { products, loading, error } = useProducts()
     const [search, setSearch] = useState("")
     const [sort, setSort] = useState("")
 
+    console.log(error);
 
     const filterProducts = products.filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
-    .sort((a, b) =>
-        sort == "low" ? a.price - b.price :
-        sort == "high" ? b.price - a.price : 0
-    )
+        .sort((a, b) =>
+            sort == "low" ? a.price - b.price :
+                sort == "high" ? b.price - a.price : 0
+        )
 
     return (
         <div className='bg-gray-950 min-h-screen text-gray-300 space-y-3'>
@@ -35,6 +37,8 @@ const Home = () => {
                     <h1 className='text-3xl font-bold'>Available Vehicles</h1>
                     <p className='text-gray-400 mb-4'>Explore our latest inventory of vehicles</p>
                 </div>
+
+                {error && <Error error={error} />}
 
                 <div className='grid grid-cols-1 md:grid-cols-3 lg:grid-cols-4'>
                     {
