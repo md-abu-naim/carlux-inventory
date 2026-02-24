@@ -1,4 +1,5 @@
 import Navber from '../Components/Navber';
+import ProductCard from '../Components/ProductCard';
 import SearchBar from '../Components/SearchBar';
 import SortDropdown from '../Components/SortDropdown';
 
@@ -11,6 +12,18 @@ const Home = () => {
             <div className='flex flex-col md:flex-row items-center justify-between gap-4 bg-gray-900 p-4 rounded-lg'>
                 <SearchBar />
                 <SortDropdown />
+            </div>
+
+            {/* Main section */}
+            <div className='mt-8'>
+                <div className='text-center'>
+                    <h1 className='text-3xl font-bold'>Available Vehicles</h1>
+                    <p className='text-gray-400 mb-4'>Explore our latest inventory of vehicles</p>
+                </div>
+
+                <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
+                    <ProductCard />
+                </div>
             </div>
         </div>
     );
