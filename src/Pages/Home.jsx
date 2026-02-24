@@ -2,11 +2,13 @@ import Navber from '../Components/Navber';
 import ProductCard from '../Components/ProductCard';
 import SearchBar from '../Components/SearchBar';
 import SortDropdown from '../Components/SortDropdown';
+import ProductSkeleton from '../Components/SkeletonLoader';
 import { useProducts } from '../Hooks/useProducts';
+import SkeletonLoader from '../Components/SkeletonLoader';
 
 const Home = () => {
     const {products, loading} = useProducts()
-    console.log(products);
+    
     return (
         <div className='bg-gray-950 min-h-screen text-gray-300 space-y-3'>
             {/* Header */}
@@ -26,13 +28,15 @@ const Home = () => {
 
                 <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4'>
                     {
-                        loading ? 'Loading' : (
+                        loading ? <ProductSkeleton />: (
                             products.map((product, i) => (
                                 <ProductCard key={i} product={product} />
                             ))
                         )
                     }
                 </div>
+
+                <SkeletonLoader />
             </div>
         </div>
     );
