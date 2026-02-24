@@ -1,5 +1,6 @@
 import Navber from '../Components/Navber';
 import SearchBar from '../Components/SearchBar';
+import SortDropdown from '../Components/SortDropdown';
 
 const Home = () => {
     return (
@@ -9,7 +10,7 @@ const Home = () => {
 
             <div className='flex flex-col md:flex-row items-center justify-between gap-4 bg-gray-900 p-4 rounded-lg'>
                 <SearchBar />
-
+                <SortDropdown />
             </div>
         </div>
     );
