@@ -8,11 +8,15 @@ import { useState } from 'react';
 
 const Home = () => {
     const { products, loading } = useProducts()
-    const [search, setSearch ] = useState("")
-    console.log(search);
+    const [search, setSearch] = useState("")
+    const [sort, setSort] = useState("")
 
 
     const filterProducts = products.filter(product => product.title.toLowerCase().includes(search.toLowerCase()))
+    .sort((a, b) =>
+        sort == "low" ? a.price - b.price :
+        sort == "high" ? b.price - a.price : 0
+    )
 
     return (
         <div className='bg-gray-950 min-h-screen text-gray-300 space-y-3'>
@@ -22,7 +26,7 @@ const Home = () => {
             {/* Filtering */}
             <div className='flex flex-col md:flex-row items-center justify-between gap-4 bg-gray-900 p-4 rounded-lg'>
                 <SearchBar search={search} setSearch={setSearch} />
-                <SortDropdown />
+                <SortDropdown sort={sort} setSort={setSort} />
             </div>
 
             {/* Main section */}
